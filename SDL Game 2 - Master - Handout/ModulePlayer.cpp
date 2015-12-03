@@ -83,6 +83,5 @@ update_status ModulePlayer::Update()
 		break;
 	}
 
-	
 	return UPDATE_CONTINUE;
 }
