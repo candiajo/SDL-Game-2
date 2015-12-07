@@ -60,6 +60,7 @@ bool ModuleSceneKen::Start()
 	// TODO 7: Enable the player module
 	App->player->Enable();
 	// TODO 0: trigger background music
+	App->audio->PlayMusic(KEN_STAGE_MUSIC);
 	
 	return true;
 }
@@ -85,7 +86,8 @@ update_status ModuleSceneKen::Update()
 	
 	App->renderer->Blit(graphics, 0, 0, &background, 0.75f); // sea and sky
 	App->renderer->Blit(graphics, 0, yOffset, &pink_ship, 0.50f); // pink ship
-	App->renderer->Blit(graphics, 560, 8, &(flag.GetCurrentFrame()), .075f); // flag animation
+	App->renderer->Blit(graphics, 560, 8, &(flag.GetCurrentFrame()), .75f); // flag animation
+
 
 	// TODO 3: Draw the ship. Be sure to tweak the speed.
 	if (bajando)
@@ -100,7 +102,7 @@ update_status ModuleSceneKen::Update()
 	}
 
 	// TODO 6: Draw the girl. Make sure it follows the ship movement!
-	App->renderer->Blit(graphics, 192, yOffset + 104, &(pink_girl.GetCurrentFrame()), .05f); // pink girl
+	App->renderer->Blit(graphics, 192, yOffset + 104, &(pink_girl.GetCurrentFrame()), 0.50f); // pink girl
 
 	App->renderer->Blit(graphics, 0, 170, &ground);
 	

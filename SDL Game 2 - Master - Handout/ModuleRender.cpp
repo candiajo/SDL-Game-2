@@ -1,8 +1,10 @@
 #include "Globals.h"
+#include "Module.h"
 #include "Application.h"
 #include "ModuleRender.h"
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
+#include "ModuleFadeToBlack.h"
 #include "SDL/include/SDL.h"
 
 ModuleRender::ModuleRender()
@@ -50,7 +52,7 @@ update_status ModuleRender::PreUpdate()
 update_status ModuleRender::Update()
 {
 	// debug camera
-	int speed = 1;
+	int speed = 10;
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 		App->renderer->camera.y += speed;
@@ -63,6 +65,15 @@ update_status ModuleRender::Update()
 
 	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		App->renderer->camera.x -= speed;
+
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	{
+		if (((Module*)App->scene_ken)->IsEnabled())
+			App->fade->FadeToBlack((Module*)App->scene_honda, (Module*)App->scene_ken);
+		else 
+			App->fade->FadeToBlack((Module*)App->scene_ken, (Module*)App->scene_honda);
+	}
+		
 
 	return UPDATE_CONTINUE;
 }

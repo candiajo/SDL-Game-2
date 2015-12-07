@@ -48,5 +48,7 @@ enum player_status
 #define FULLSCREEN false
 #define VSYNC true
 #define TITLE "Super Awesome Game"
+#define KEN_STAGE_MUSIC "ken.ogg"
+#define HONDA_STAGE_MUSIC "honda.ogg"
 
 #endif //__GLOBALS_H__

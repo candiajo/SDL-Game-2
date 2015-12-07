@@ -30,7 +30,13 @@ ModulePlayer::ModulePlayer(bool start_enabled) : Module(start_enabled)
 	backward.speed = 0.1f;
 
 	// TODO 8: setup the walk forward animation from ryu4.png
-
+	forward.frames.push_back({ 542, 131, 61, 87 });
+	forward.frames.push_back({ 628, 129, 59, 90 });
+	forward.frames.push_back({ 713, 128, 57, 90 });
+	forward.frames.push_back({ 797, 127, 57, 90 });
+	forward.frames.push_back({ 883, 128, 58, 91 });
+	forward.frames.push_back({ 974, 129, 57, 89 });
+	forward.speed = 0.1f;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -44,6 +50,8 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("ryu4.png"); // arcade version
+	position.x = 30;
+	position.y = 120;
 
 	return true;
 }
@@ -69,17 +77,21 @@ update_status ModulePlayer::Update()
 		ryu_status = PLAYER_BACKWARD;
 	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 		ryu_status = PLAYER_FORWARD;
+	else
+		ryu_status = PLAYER_IDLE;
 
 	switch (ryu_status)
 	{
 	case PLAYER_IDLE:
-		App->renderer->Blit(graphics, 30, 120, &(idle.GetCurrentFrame()), .075f);
+		App->renderer->Blit(graphics, position.x, position.y, &(idle.GetCurrentFrame()), .075f);
 		break;
 	case PLAYER_FORWARD:
-		App->renderer->Blit(graphics, 30, 120, &(forward.GetCurrentFrame()), .075f);
+		position.x++;
+		App->renderer->Blit(graphics, position.x, position.y, &(forward.GetCurrentFrame()), .075f);
 		break;
 	case PLAYER_BACKWARD:
-		App->renderer->Blit(graphics, 30, 120, &(backward.GetCurrentFrame()), .075f);
+		position.x--;
+		App->renderer->Blit(graphics, position.x, position.y, &(backward.GetCurrentFrame()), .075f);
 		break;
 	}
 
