@@ -7,6 +7,14 @@
 
 void log(const char file[], int line, const char* format, ...);
 
+struct particle_info
+{
+	fPoint position;
+	Timer vida;
+	SDL_Texture* texture;
+	fPoint speed;
+};
+
 enum update_status
 {
 	UPDATE_CONTINUE = 1,
