@@ -67,6 +67,12 @@
     <ClInclude Include="Particle.h">
       <Filter>Core Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollisions.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -112,6 +118,12 @@
       <Filter>Core Modules</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollisions.cpp">
       <Filter>Core Modules</Filter>
     </ClCompile>
   </ItemGroup>

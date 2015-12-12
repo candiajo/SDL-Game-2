@@ -4,9 +4,12 @@
 #include "Globals.h"
 #include "Point.h"
 #include "Timer.h"
+#include "Module.h"
+#include "Collider.h"
+#include "ModuleCollisions.h"
 #include "SDL\include\SDL.h"
 
-class Particle
+class Particle : public Module
 {
 public:
 	Particle(particle_info& particle);

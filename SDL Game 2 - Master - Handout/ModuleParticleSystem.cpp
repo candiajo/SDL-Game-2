@@ -25,7 +25,7 @@ update_status ModuleParticleSystem::Update()
 {
 	for (auto& it : particles)
 		it->Update();
-
+		
 	return UPDATE_CONTINUE;
 }
 
@@ -34,6 +34,9 @@ bool ModuleParticleSystem::CleanUp()
 {
 	LOG("Unloading particles");
 	App->textures->Unload(particles_sheet);
+
+	for (auto& it : particles)
+		delete(it);
 
 	return true;
 }

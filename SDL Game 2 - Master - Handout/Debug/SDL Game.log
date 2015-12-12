@@ -1,15 +1,15 @@
-﻿Compilación iniciada a las 12/12/2015 11:37:23.
+﻿Compilación iniciada a las 12/12/2015 23:20:08.
      1>Proyecto "C:\Users\Jordi\Documents\GitHub\SDL-Game-2\SDL Game 2 - Master - Handout\SDL Game.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleRender.cpp
-         ModuleRender.cpp
-     1>c:\users\jordi\documents\github\sdl-game-2\sdl game 2 - master - handout\modulerender.cpp(77): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>c:\users\jordi\documents\github\sdl-game-2\sdl game 2 - master - handout\modulerender.cpp(78): warning C4244: '=' : conversión de 'int' a 'float'; posible pérdida de datos
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModuleCollisions.cpp
+         ModuleCollisions.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jordi\Documents\GitHub\SDL-Game-2\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jordi\Documents\GitHub\SDL-Game-2\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jordi\Documents\GitHub\SDL-Game-2\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.lib" /MACHINE:X86 Debug\Application.obj
+         Debug\Collider.obj
          Debug\Log.obj
          Debug\Main.obj
          Debug\ModuleAudio.obj
+         Debug\ModuleCollisions.obj
          Debug\ModuleFadeToBlack.obj
          Debug\ModuleInput.obj
          Debug\ModuleParticleSystem.obj
@@ -26,4 +26,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.55
+Tiempo transcurrido 00:00:00.56

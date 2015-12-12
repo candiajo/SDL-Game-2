@@ -7,6 +7,7 @@
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleCollisions.h"
 #include "SDL/include/SDL.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -59,8 +60,14 @@ bool ModuleSceneKen::Start()
 
 	// TODO 7: Enable the player module
 	App->player->Enable();
+	App->player2->Enable();
+
+	App->collisions->AddCollider(App->player->collider);
+	App->collisions->AddCollider(App->player2->collider);
 	// TODO 0: trigger background music
 	App->audio->PlayMusic(KEN_STAGE_MUSIC);
+
+
 	
 	return true;
 }

@@ -9,6 +9,7 @@
 #include "ModuleSceneHonda.h"
 #include "ModulePlayer.h"
 #include "ModuleParticleSystem.h"
+#include "ModuleCollisions.h"
 
 using namespace std;
 
@@ -23,11 +24,14 @@ Application::Application()
 	modules.push_back(audio = new ModuleAudio());
 
 	// Game Modules
+	modules.push_back(collisions = new ModuleCollisions());
 	modules.push_back(scene_ken = new ModuleSceneKen(false));
 	modules.push_back(scene_honda = new ModuleSceneHonda(false));
-	modules.push_back(player = new ModulePlayer(false));
+	modules.push_back(player = new ModulePlayer(false, 30));
+	modules.push_back(player2 = new ModulePlayer(false, 200));
 	modules.push_back(fade = new ModuleFadeToBlack());
 	modules.push_back(particle_system = new ModuleParticleSystem());
+	
 }
 
 Application::~Application()

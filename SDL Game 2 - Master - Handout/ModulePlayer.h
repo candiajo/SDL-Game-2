@@ -5,13 +5,14 @@
 #include "Animation.h"
 #include "Globals.h"
 #include "Point.h"
+#include "Collider.h"
 
 struct SDL_Texture;
 
 class ModulePlayer : public Module
 {
 public:
-	ModulePlayer(bool start_enabled = true);
+	ModulePlayer(bool start_enabled = true, int x = 100);
 	~ModulePlayer();
 
 	bool Start();

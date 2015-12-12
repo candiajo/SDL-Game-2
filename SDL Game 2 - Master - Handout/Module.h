@@ -1,10 +1,9 @@
 #ifndef __MODULE_H__
 #define __MODULE_H__
 
-//class Application;
-
-//#include "Application.h"
 #include "Globals.h"
+#include "Collider.h"
+//class Collider;
 
 class Module
 {
@@ -15,6 +14,14 @@ public:
 
 	~Module()
 	{}
+
+	virtual bool OnCollision(Collider* collider1, Collider* collider2)
+	{
+		collider1->listener->active = false;
+		collider1->ToDelete = true;
+
+		return true;
+	};
 
 	bool IsEnabled() const
 	{
@@ -66,6 +73,8 @@ public:
 	{ 
 		return true; 
 	}
+
+	Collider* collider = NULL;
 
 private:
 	bool active = true;

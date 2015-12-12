@@ -72,11 +72,11 @@ update_status ModuleRender::Update()
 	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
 	{
 		particle_info hadoken;
-		hadoken.life_time = 1000;
+		hadoken.life_time = 2000;
 		hadoken.position.x = 0.0f;
-		hadoken.position.x = App->player->position.x + 20;
+		hadoken.position.x = App->player->position.x + 70;
 		hadoken.position.y = App->player->position.y + 10;
-		hadoken.speed.x = 1.0f;
+		hadoken.speed.x = 2.0f;
 		hadoken.speed.y = 0.0f;
 		hadoken.particle_frame.x = 1090;
 		hadoken.particle_frame.y = 1440;
@@ -91,7 +91,6 @@ update_status ModuleRender::Update()
 		else 
 			App->fade->FadeToBlack((Module*)App->scene_ken, (Module*)App->scene_honda);
 	}
-		
 
 	return UPDATE_CONTINUE;
 }

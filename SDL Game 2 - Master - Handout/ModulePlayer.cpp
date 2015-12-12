@@ -1,16 +1,16 @@
-#include "Globals.h"
 #include "Application.h"
 #include "ModulePlayer.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
+#include "ModuleCollisions.h"
 #include "SDL/include/SDL.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
-ModulePlayer::ModulePlayer(bool start_enabled) : Module(start_enabled)
+ModulePlayer::ModulePlayer(bool start_enabled, int x) : Module(start_enabled)
 {
-	position.x = 100;
-	position.y = 216;
+	position.x = x;
+	position.y = 120;
 
 	// idle animation (arcade sprite sheet)
 	idle.frames.push_back({7, 14, 60, 90});
@@ -37,6 +37,8 @@ ModulePlayer::ModulePlayer(bool start_enabled) : Module(start_enabled)
 	forward.frames.push_back({ 341, 127, 68, 93 });
 	forward.frames.push_back({ 419, 127, 68, 93 });
 	forward.speed = 0.1f;
+
+	collider = new Collider(this, position.x, position.y, 70, 90);
 }
 
 ModulePlayer::~ModulePlayer()
@@ -50,8 +52,6 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	graphics = App->textures->Load("ryu4.png"); // arcade version
-	position.x = 30;
-	position.y = 120;
 
 	return true;
 }
@@ -94,6 +94,10 @@ update_status ModulePlayer::Update()
 		App->renderer->Blit(graphics, position.x, position.y, &(backward.GetCurrentFrame()), .075f);
 		break;
 	}
+
+	collider->area.x = position.x;
+	collider->area.y = position.y;
+	
 
 	return UPDATE_CONTINUE;
 }
