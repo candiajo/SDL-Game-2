@@ -1,7 +1,10 @@
 #ifndef __MODULE_H__
 #define __MODULE_H__
 
-class Application;
+//class Application;
+
+//#include "Application.h"
+#include "Globals.h"
 
 class Module
 {

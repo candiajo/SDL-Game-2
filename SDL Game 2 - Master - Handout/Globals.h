@@ -2,6 +2,9 @@
 #define __GLOBALS_H__
 
 #include "SDL/include/SDL_rect.h"
+#include "Point.h"
+
+struct SDL_Texture;
 
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
@@ -10,8 +13,9 @@ void log(const char file[], int line, const char* format, ...);
 struct particle_info
 {
 	fPoint position;
-	Timer vida;
-	SDL_Texture* texture;
+	int life_time;
+	SDL_Texture* particles_sheet;
+	SDL_Rect particle_frame;
 	fPoint speed;
 };
 
@@ -58,5 +62,6 @@ enum player_status
 #define TITLE "Super Awesome Game"
 #define KEN_STAGE_MUSIC "ken.ogg"
 #define HONDA_STAGE_MUSIC "honda.ogg"
+#define RYU_SPRITES "ryu.png"
 
 #endif //__GLOBALS_H__

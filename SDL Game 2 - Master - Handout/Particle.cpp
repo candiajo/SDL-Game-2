@@ -7,20 +7,33 @@ Particle::Particle(particle_info& particle)
 {
 	position = particle.position;
 	speed = particle.speed;
-	vida = particle.vida;
-	texture = particle.texture;
+	life = new Timer(particle.life_time);
+	particle_frame = particle.particle_frame;
+	particles_sheet = particle.particles_sheet;
+	life->StartTimer();
 }
 
 Particle::~Particle()
-{}
+{
+	delete (life);
+}
 
 bool Particle::Init()
-{}
+{
+	return true;
+}
 
 update_status Particle::Update()
 {
-	position += speed;
+	if (life->InTime())
+	{
+		position += speed;
 
-	App->renderer->Blit(graphics, 0, 0, &texture, 0.75f);
-
+		App->renderer->Blit(particles_sheet, position.x, position.y, &particle_frame, 0.75f);
+	}
+	else
+	{
+		// marcar para borrar
+	}
+	return UPDATE_CONTINUE;
 }

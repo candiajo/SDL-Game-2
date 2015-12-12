@@ -111,5 +111,8 @@
     <ClCompile Include="Particle.cpp">
       <Filter>Core Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

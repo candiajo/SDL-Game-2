@@ -19,10 +19,13 @@ public:
 	void CreateParticle(particle_info& particle);
 
 	bool Init();
+	bool Start();
 	update_status Update();
+	bool CleanUp();
 
 private:
 	std::list<Particle*> particles;
+	SDL_Texture* particles_sheet;
 };
 
 #endif // __MODULEPARTICLESYSTEM_H__

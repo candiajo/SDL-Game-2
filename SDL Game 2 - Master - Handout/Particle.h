@@ -17,8 +17,9 @@ public:
 
 private:
 	fPoint position;
-	Timer vida;
-	SDL_Texture* texture;
+	Timer* life;
+	SDL_Texture* particles_sheet;
+	SDL_Rect particle_frame;
 	fPoint speed;
 };
 

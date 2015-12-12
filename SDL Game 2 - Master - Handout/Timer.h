@@ -6,30 +6,15 @@
 class Timer
 {
 public:
-	Timer();
+	Timer(int life_time);
 	~Timer();
 
 	void StartTimer();
-	int Time();
+	bool InTime();
 
 private:
 	int start_time;
+	int life_time;	// in milliseconds
 };
-
-Timer::Timer()
-{}
-
-Timer::~Timer()
-{}
-
-void Timer::StartTimer()
-{
-	start_time = SDL_GetTicks();
-}
-
-int Timer::Time()
-{
-	return SDL_GetTicks() - start_time;
-}
 
 #endif //__TIMER_H__

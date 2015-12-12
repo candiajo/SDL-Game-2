@@ -5,6 +5,9 @@
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleParticleSystem.h"
+#include "ModuleTextures.h"
+#include "ModulePlayer.h"
 #include "SDL/include/SDL.h"
 
 ModuleRender::ModuleRender()
@@ -66,6 +69,21 @@ update_status ModuleRender::Update()
 	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		App->renderer->camera.x -= speed;
 
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
+	{
+		particle_info hadoken;
+		hadoken.life_time = 1000;
+		hadoken.position.x = 0.0f;
+		hadoken.position.x = App->player->position.x + 20;
+		hadoken.position.y = App->player->position.y + 10;
+		hadoken.speed.x = 1.0f;
+		hadoken.speed.y = 0.0f;
+		hadoken.particle_frame.x = 1090;
+		hadoken.particle_frame.y = 1440;
+		hadoken.particle_frame.w = 60;
+		hadoken.particle_frame.h = 30;
+		App->particle_system->CreateParticle(hadoken);
+	}
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
 		if (((Module*)App->scene_ken)->IsEnabled())
